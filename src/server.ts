@@ -1,10 +1,10 @@
 import express from 'express';
-type IFMiddleware = (app: express.Express) => Promise<void>;
+type Imiddleware = (app: express.Express) => Promise<void> | void;
 class Server {
-  private _middleware!: Array<IFMiddleware>;
+  private _middleware!: Array<Imiddleware>;
   private _port!: number;
   private _app!: express.Express;
-  constructor(port: number, middleware: Array<IFMiddleware>) {
+  constructor(port: number, middleware: Array<Imiddleware>) {
     this._port = port;
     this._middleware = middleware;
     this._app = express();
